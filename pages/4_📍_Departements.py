@@ -56,7 +56,7 @@ st.plotly_chart(px.imshow(df_toggle.drop(['Commune Name', 'INSEE Code', 'Departm
 
 """
 ---
-Evolution of the debit speed eligibylity by year
+Evolution of the internet speed eligibylity by year
 """
 
 st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby(['Year']).sum().reset_index().melt(id_vars=['Year'], value_vars=list_elig, var_name='Eligibility', value_name='Sum')).mark_line().encode(
@@ -67,7 +67,7 @@ st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby([
 
 """
 ---
-Pie chart of the number of the debit speed eligibility by year
+Pie chart of the number of the internet speed eligibility by year
 """
 
 year_pie = st.slider('Select the year', min_value=2020,
@@ -78,7 +78,7 @@ st.plotly_chart(px.pie(df[df['Year'] == year_pie].drop(['geometry', 'Region Code
 
 """
 ---
-Map of the region by cumulative debit eligibility ratio
+Map of the region by cumulative internet eligibility ratio
 """
 
 option_elig = st.selectbox('Select the eligibility',

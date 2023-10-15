@@ -24,7 +24,7 @@ st.table(pd.DataFrame.from_dict(columns_description,
          orient='index', columns=['Description']))
 
 """
-Before going further, you have to know some facts about the internet technology used in France and the debit associated with it.
+Before going further, you have to know some facts about the internet technology used in France and the internet speed associated with it.
 """
 st.table(techno_description)
 
