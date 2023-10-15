@@ -39,7 +39,7 @@ with col3:
 
 """
 ---
-Coorelation between the different eligibility by years
+Coorelation between the different columns
 """
 toggle_coor = st.toggle('Show the correlation matrix by year', value=False)
 df_toggle = df
@@ -56,7 +56,7 @@ st.plotly_chart(px.imshow(df_toggle.drop(['Commune Name', 'INSEE Code', 'Departm
 
 """
 ---
-Evolution of the debit eligibylity by year
+Evolution of the debit speed eligibylity by year
 """
 
 st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby(['Year']).sum().reset_index().melt(id_vars=['Year'], value_vars=list_elig, var_name='Eligibility', value_name='Sum')).mark_line().encode(
@@ -67,7 +67,7 @@ st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby([
 
 """
 ---
-Pie chart of the number of entity by technology by year
+Pie chart of the number of the debit speed eligibility by year
 """
 
 year_pie = st.slider('Select the year', min_value=2020,

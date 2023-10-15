@@ -21,8 +21,9 @@ In this analysis, I have looked into a dataset of the internet connection speed 
 - [Altair](https://altair-viz.github.io/) for interactive plots
 - [Pydeck](https://deckgl.readthedocs.io/en/latest/) for 3D plots
 - [Plotly](https://plotly.com/python/) for interactive plots
-- Missingno for missing values visualisation (not used in the final version)
+- [Millify](https://pypi.org/project/millify/) for formatting numbers
+- [Missingno](https://pypi.org/project/missingno/) for missing values visualisation (not used in the final version)
 
-It was a very interesting project but I have to admit that I have spent a lot of time on it and it was dificul to work with a dataset with few links between the different columns. I have learned a lot of things about data visualisation and I am very happy with the result. I hope you enjoyed it too.
+It was a very interesting project but I have to admit that I have spent a lot of time on it and it was dificult to work with a dataset with few links between the different columns. I have learned a lot of things about data visualisation and I am very happy with the result. I hope you enjoyed it too.
 
 """

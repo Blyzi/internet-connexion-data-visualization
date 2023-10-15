@@ -10,7 +10,7 @@ st.set_page_config(layout="wide", page_title='Ma Connexion Internet Analysis in 
 
 df = load_data_region()
 
-st.header('Visualization of the overall france data', divider="rainbow")
+st.header('Visualization of the overall France data', divider="rainbow")
 
 col1, col2, col3 = st.columns(3)
 
@@ -34,7 +34,7 @@ with col3:
 
 """
 ---
-Coorelation between the different eligibility by years
+Coorelation between the different columns
 """
 toggle_coor = st.toggle('Show the correlation matrix by year', value=False)
 df_toggle = df
@@ -51,7 +51,7 @@ st.plotly_chart(px.imshow(df_toggle.drop(['Region Name', 'Region Code', 'geometr
 
 """
 ---
-Evolution of the debit eligibylity by year
+Evolution of the debit speed eligibility by year
 """
 
 st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby(['Year']).sum().reset_index().melt(id_vars=['Year'], value_vars=list_elig, var_name='Eligibility', value_name='Sum')).mark_line().encode(
@@ -62,7 +62,7 @@ st.altair_chart(alt.Chart(df.drop(['geometry', 'Region Code'], axis=1).groupby([
 
 """
 ---
-Pie chart of the number of entity by technology by year
+Pie chart of the number of the debit speed eligibility by year
 """
 
 year_pie = st.slider('Select the year', min_value=2020,
@@ -73,7 +73,7 @@ st.plotly_chart(px.pie(df[df['Year'] == year_pie].drop(['geometry', 'Region Code
 
 """
 ---
-Map of the region by cumulative debit eligibility ratio
+Map of the region by cumulative debit speed eligibility ratio
 """
 
 option_elig = st.selectbox('Select the eligibility',
