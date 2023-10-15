@@ -5,7 +5,6 @@ import geopandas as gpd
 import pydeck as pdk
 import altair as alt
 import folium as fo
-import base64
 
 
 # Constants definition

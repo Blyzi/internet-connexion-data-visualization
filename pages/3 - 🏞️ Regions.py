@@ -1,14 +1,9 @@
 import streamlit as st
-import pandas as pd
-import geopandas as gpd
 from utils import compute_pdk_column_map, list_elig, list_techno, elig_color, techno_color, region_list, color_to_hex, color_to_alt, compute_folium_map, load_data_departement
 import altair as alt
 from millify import millify
 import plotly.express as px
-import folium as fo
 from streamlit_folium import folium_static
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 st.set_page_config(layout="wide", page_title='Ma Connexion Internet Analysis in France',
                    page_icon='📶', initial_sidebar_state='auto')

@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+geopandas
+pydeck
+altair
+folium
+millify
+streamlit_folium
+plotly
