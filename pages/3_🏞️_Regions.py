@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import compute_pdk_column_map, list_elig, list_techno, elig_color, techno_color, region_list, color_to_hex, color_to_alt, compute_folium_map, load_data_departement
+from utils import compute_pdk_column_map, list_elig, list_techno, elig_color, techno_color, region_list, department_list, color_to_hex, color_to_alt, compute_folium_map, load_data_departement
 import altair as alt
 from millify import millify
 import plotly.express as px
@@ -145,3 +145,17 @@ st.pydeck_chart(m)
 "Legend:"
 
 st.write(legend, unsafe_allow_html=True)
+
+"""
+---
+Barplot of the number of ineligible entity by department by year
+"""
+
+df_bar = df.drop(['geometry'], axis=1).groupby(
+    ['Year', 'Department Code']).sum().reset_index()[['Year', 'Department Code', 'Ineligible entity']]
+
+df_bar['Department Code'] = df_bar['Department Code'].apply(
+    lambda x: department_list[str(x)])
+
+st.bar_chart(df_bar.pivot(index='Department Code',
+             columns='Year', values='Ineligible entity'))

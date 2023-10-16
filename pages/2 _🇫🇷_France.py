@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import load_data_region, elig_color, list_elig, list_techno, techno_color, compute_folium_map, compute_pdk_map, compute_pdk_column_map, color_to_alt, color_to_hex
+from utils import load_data_region, region_list, elig_color, list_elig, list_techno, techno_color, compute_folium_map, compute_pdk_map, compute_pdk_column_map, color_to_alt, color_to_hex
 import altair as alt
 from millify import millify
 import plotly.express as px
@@ -138,3 +138,17 @@ st.pydeck_chart(m)
 "Legend:"
 
 st.write(legend, unsafe_allow_html=True)
+
+"""
+---
+Barplot of the number of ineligible entity by region by year
+"""
+
+df_bar = df.drop(['geometry'], axis=1).groupby(
+    ['Year', 'Region Code']).sum().reset_index()[['Year', 'Region Code', 'Ineligible entity']]
+
+df_bar['Region Code'] = df_bar['Region Code'].apply(
+    lambda x: region_list[str(x)])
+
+st.bar_chart(df_bar.pivot(index='Region Code',
+             columns='Year', values='Ineligible entity'))

@@ -144,3 +144,14 @@ st.pydeck_chart(m)
 "Legend:"
 
 st.write(legend, unsafe_allow_html=True)
+
+"""
+---
+Barplot of the number of ineligible entity by commune by year
+"""
+
+df_bar = df.drop(['geometry'], axis=1).groupby(
+    ['Year', 'INSEE Code']).sum().reset_index()[['Year', 'Commune Name', 'Ineligible entity']]
+
+st.bar_chart(df_bar.pivot(index='Commune Name',
+             columns='Year', values='Ineligible entity'))
