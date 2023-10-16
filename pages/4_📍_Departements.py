@@ -4,13 +4,16 @@ import altair as alt
 from millify import millify
 import plotly.express as px
 from streamlit_folium import folium_static
+from time import time
 
 st.set_page_config(layout="wide", page_title='Ma Connexion Internet Analysis in France',
                    page_icon='📶', initial_sidebar_state='auto')
 
-st.header('Visualization for one region', divider="rainbow")
+st.header('Visualization for one department', divider="rainbow")
 
+start = time()
 df = load_data_commune()
+st.toast(f"Data loaded in {time() - start:.2f} seconds")
 
 dep_select = st.selectbox(
     'Select the department', sorted(df['Department Code'].unique()), index=0, key='region', format_func=lambda x: x + ": " + department_list[str(x)])

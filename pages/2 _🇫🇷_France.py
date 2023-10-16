@@ -4,13 +4,16 @@ import altair as alt
 from millify import millify
 import plotly.express as px
 from streamlit_folium import folium_static
+from time import time
 
 st.set_page_config(layout="wide", page_title='Ma Connexion Internet Analysis in France',
                    page_icon='📶', initial_sidebar_state='auto')
 
-df = load_data_region()
-
 st.header('Visualization of the overall France data', divider="rainbow")
+
+start = time()
+df = load_data_region()
+st.toast(f"Data loaded in {time() - start:.2f} seconds")
 
 col1, col2, col3 = st.columns(3)
 
