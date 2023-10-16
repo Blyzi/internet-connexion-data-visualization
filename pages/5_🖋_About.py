@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(layout="wide", page_title='Ma Connexion Internet Analysis in France',
                    page_icon='📶', initial_sidebar_state='auto')
 
-st.header('Ma connexion internet - Data Viz - 2023 ', divider="rainbow")
+st.header('Ma connexion internet - #datavz2023efrei', divider="rainbow")
 
 st.balloons()
 
